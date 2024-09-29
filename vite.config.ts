@@ -19,10 +19,8 @@ export default defineConfig({
   },
   optimizeDeps: {
     include: [
-      resolve('./static/lodash-es.js'),
-      resolve('./static/react-window.js'),
     ],
-    exclude: ['lodash-es', 'react-window']
+    // exclude: ['lodash-es', 'react-window']
   },
   plugins: [
     react({
@@ -34,8 +32,8 @@ export default defineConfig({
   ],
   resolve: {
     alias: {
-      'lodash-es': resolve('./static/lodash-es.js'),
-      'react-window': resolve('./static/react-window.js'),
+      // 'lodash-es': resolve('./.cache/lodash-es.js'),
+      // 'react-window': resolve('./.cache/react-window.js'),
     }
   },
   server: {
