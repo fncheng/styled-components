@@ -1,8 +1,8 @@
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
-import path from 'path'
+// import path from 'path'
 
-const resolve = (val: string) => path.resolve(__dirname, val)
+// const resolve = (val: string) => path.resolve(__dirname, val)
 
 // https://vitejs.dev/config/
 export default defineConfig({

@@ -1,7 +1,9 @@
 import {
     addEdge,
     Background,
+    BackgroundVariant,
     Controls,
+    DefaultEdgeOptions,
     type Edge,
     type Node,
     ReactFlow,
@@ -21,8 +23,13 @@ const Flow = () => {
     const [nodes, setNodes, onNodesChange] = useNodesState(initalNodes)
     const [edges, setEdges, onEdgesChange] = useEdgesState(initialEdges)
 
+    const defaultEdgeOptions: DefaultEdgeOptions = {
+        // type: 'smoothstep',
+        animated: true
+    }
+
     const onConnect = useCallback(
-        (params) => {
+        (params: any) => {
             setEdges((eds) => addEdge(params, eds))
         },
         [setEdges]
@@ -36,9 +43,10 @@ const Flow = () => {
                 onNodesChange={onNodesChange}
                 onEdgesChange={onEdgesChange}
                 onConnect={onConnect}
+                defaultEdgeOptions={defaultEdgeOptions}
             >
                 <Controls />
-                <Background variant='dots' gap={12} size={1} />
+                <Background variant={BackgroundVariant.Dots} gap={12} size={1} />
             </ReactFlow>
         </div>
     )

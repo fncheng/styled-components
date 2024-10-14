@@ -5,7 +5,6 @@ import { Button } from 'antd';
 import styled from '@emotion/styled';
 import { css } from '@emotion/react'
 import { FixedSizeList as List } from 'react-window';
-import { debounce } from 'lodash-es';
 
 
 const appClass = css`
@@ -117,7 +116,7 @@ const Home = () => {
 
   return (
     <div>
-      <StyledButton css={appClass} onClick={() => debounce(() => setCount(count + 1), 1000)}>
+      <StyledButton css={appClass} onClick={() => setCount(count + 1)}>
         {count}
       </StyledButton>
       <h3>{text}</h3>

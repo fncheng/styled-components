@@ -3,7 +3,9 @@ import { createBrowserRouter, RouteObject, RouterProvider } from 'react-router-d
 
 const Home = lazy(() => import('../pages/Home'))
 const About = lazy(() => import('../pages/About'))
-const ReactFLow = lazy(() => import('../pages/ReactFlow/index'))
+const Test = lazy(() => import('../pages/Test'))
+const ReactFLow = lazy(() => import('../pages/ReactFlow'))
+const AntdForm = lazy(() => import('../pages/AntdForm'))
 
 const routes: RouteObject[] = [
     {
@@ -23,8 +25,16 @@ const routes: RouteObject[] = [
                 errorElement: <div>error</div>
             },
             {
+                path: 'test',
+                element: <Test />
+            },
+            {
                 path: 'react-flow',
                 element: <ReactFLow />
+            },
+            {
+                path: 'form',
+                element: <AntdForm />
             }
         ]
     }
