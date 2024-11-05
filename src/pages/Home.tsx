@@ -20,6 +20,7 @@ const About = () => {
             <NavLink to={'/test'}>Test</NavLink>
             <NavLink to={'/react-flow'}>react-flow</NavLink>
             <Link to={'/form'}>Form</Link>
+            <NavLink to={'/antd'}>Antd</NavLink>
             <Suspense>{show && <Lazy />}</Suspense>
         </div>
     )
