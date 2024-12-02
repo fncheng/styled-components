@@ -15,11 +15,14 @@ export default defineConfig({
           'lodash-es': ['lodash-es']
         }
       }
-    }
+    },
+    cssCodeSplit: true
   },
   optimizeDeps: {
-    include: [
-    ],
+    // include: [
+    //   '@emotion/react',
+    //   '@emotion/styled',
+    // ],
     // exclude: ['lodash-es', 'react-window']
   },
   plugins: [
@@ -37,6 +40,6 @@ export default defineConfig({
     }
   },
   server: {
-    port: 3001
+    port: 10002
   }
 })

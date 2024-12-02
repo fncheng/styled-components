@@ -1,4 +1,4 @@
-import { Tabs, TabsProps } from "antd";
+import { Select, Tabs, TabsProps } from "antd";
 import { useState } from "react";
 
 enum TAB_NAME {
@@ -32,6 +32,7 @@ const Tab = () => {
         <>
             <button onClick={() => setStatus(!status)}>status</button>
             <Tabs defaultActiveKey={activeKey} items={items}></Tabs>
+            <Select style={{ width: 120 }}></Select>
         </>
     );
 };

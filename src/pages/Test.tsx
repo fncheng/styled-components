@@ -1,10 +1,11 @@
-import { debounce } from 'lodash-es'
 import { useState } from 'react'
 
 const About = () => {
-    const [count, setCount] = useState<number>(100)
+    const state = useState<number>(100)
+    const [count,setCount] = state
+    console.log('state: ', state,state[1]);
 
-    const buttonClick = debounce(() => setCount(count + 1), 1000)
+    const buttonClick = () => setCount(count + 1)
 
     return (
         <div>

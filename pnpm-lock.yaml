@@ -88,6 +88,9 @@ devDependencies:
   vite:
     specifier: ^5.4.1
     version: 5.4.8(@types/node@22.7.3)
+  vite-plugin-babel:
+    specifier: ^1.2.0
+    version: 1.2.0(@babel/core@7.25.2)(vite@5.4.8)
   vite-plugin-ssr:
     specifier: ^0.4.142
     version: 0.4.142(vite@5.4.8)
@@ -3836,6 +3839,16 @@ packages:
     dependencies:
       react: 18.3.1
     dev: false
+
+  /vite-plugin-babel@1.2.0(@babel/core@7.25.2)(vite@5.4.8):
+    resolution: {integrity: sha512-ltAnq535Ubf9sDbVCkztAdkwx5aQbNrwPFs+iZTJ5FaAhTdxjqmLGpxsAaRfJWEKBJ/kFf9KwMoTdArm0IRUUw==}
+    peerDependencies:
+      '@babel/core': ^7.0.0
+      vite: ^2.7.0 || ^3.0.0 || ^4.0.0 || ^5.0.0
+    dependencies:
+      '@babel/core': 7.25.2
+      vite: 5.4.8(@types/node@22.7.3)
+    dev: true
 
   /vite-plugin-ssr@0.4.142(vite@5.4.8):
     resolution: {integrity: sha512-ZDgpocnTEUmhYxGgMah8ZNK1Sfy5CFVcdXu+Ll3zRtGIPyWT5vYvASs2BLYEneqantHpde2b31Khzb0hxmP62w==}

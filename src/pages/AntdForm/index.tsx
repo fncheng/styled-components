@@ -5,6 +5,10 @@ const AntdForm = () => {
 
     return (
         <ProForm
+            layout='horizontal'
+            labelAlign='right'
+            labelCol={{ span: 6 }}
+            wrapperCol={{ span: 18 }}
             form={form}
             style={{ width: 400 }}
             onFinish={(values) => {
