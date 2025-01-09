@@ -1,6 +1,7 @@
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
 // import path from 'path'
+import { visualizer } from 'rollup-plugin-visualizer'
 
 // const resolve = (val: string) => path.resolve(__dirname, val)
 
@@ -12,7 +13,8 @@ export default defineConfig({
         manualChunks: {
           'react-vendor': ['react', 'react-dom'],
           antd: ['antd'],
-          'lodash-es': ['lodash-es']
+          'lodash-es': ['lodash-es'],
+          'pro-components': ['@ant-design/pro-components']
         }
       }
     },
@@ -31,6 +33,9 @@ export default defineConfig({
       babel: {
         plugins: ['@emotion/babel-plugin']
       }
+    }),
+    visualizer({
+      
     })
   ],
   resolve: {

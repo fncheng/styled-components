@@ -1,17 +1,20 @@
 import { useState } from 'react'
+import TestComponent from '../components/TestComponent'
+import AsyncComponent from '../components/AsyncComponent'
 
-const About = () => {
-    const state = useState<number>(100)
-    const [count,setCount] = state
-    console.log('state: ', state,state[1]);
+const Test: React.FC = () => {
+    const [count, setCount] = useState<number>(100)
 
     const buttonClick = () => setCount(count + 1)
 
     return (
         <div>
             <button onClick={buttonClick}>{count}</button>
+            <TestComponent component={<AsyncComponent number={count + 1} />}>
+                <AsyncComponent number={count} />
+            </TestComponent>
         </div>
     )
 }
 
-export default About
+export default Test

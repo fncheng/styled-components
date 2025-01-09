@@ -69,6 +69,11 @@ const Home = () => {
             <StyledButton css={appClass} onClick={() => setCount(count + 1)}>
                 {count}
             </StyledButton>
+            <CustomButton
+                onCustomClick={({ someData }) => console.log(someData)}
+                text='Custom Button'
+                bgColor='red'
+            ></CustomButton>
             <h3>{text}</h3>
             <StyledAntdButton ref={ref} type='primary' onClick={handleClick}>
                 click Me

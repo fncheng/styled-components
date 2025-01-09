@@ -1,6 +1,7 @@
 import loadable from '@loadable/component'
 import { lazy, Suspense } from 'react'
 import { createBrowserRouter, type RouteObject, RouterProvider } from 'react-router-dom'
+import App from '../App'
 
 const pages: Record<string, () => Promise<any>> = import.meta.glob('../pages/**/*.tsx')
 
@@ -16,7 +17,13 @@ const loadWithDelay = (promise: Promise<any>, time: number) => {
 }
 
 const AsyncPage = loadable(
-    (props: { page: string }) => loadWithDelay(import(`../pages/${props.page}/index.tsx`), 500),
+    (props: { page: string | string[] }) => {
+        const { page } = props
+        if (Array.isArray(page)) {
+            return loadWithDelay(import(`../pages/${page[0]}/${page[1]}.tsx`), 500)
+        }
+        return loadWithDelay(import(`../pages/${page}/index.tsx`), 500)
+    },
     {
         fallback: <div> Layout Loading...</div>,
         cacheKey: (props) => props.page
@@ -38,6 +45,7 @@ const AntdPage = loadable(
 const routes: RouteObject[] = [
     {
         path: '/',
+        element: <App />,
         children: [
             {
                 index: true,
@@ -62,11 +70,15 @@ const routes: RouteObject[] = [
             },
             {
                 path: 'form',
-                element: <AsyncPage page='AntdForm' />
+                element: <AsyncPage page={['AntdForm', 'index']} />
+            },
+            {
+                path: 'cascader',
+                element: <AsyncPage page={['AntdForm', 'cascader']} />
             },
             {
                 path: 'antd',
-                element: <AntdPage page='Antd/index' />
+                element: <AntdPage page='Antd' />
             },
             {
                 path: 'antd/table',
